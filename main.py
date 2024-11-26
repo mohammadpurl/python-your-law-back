@@ -14,3 +14,6 @@ async def init_tables():
 
 app.include_router(user_router, prefix="/users")
 
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}

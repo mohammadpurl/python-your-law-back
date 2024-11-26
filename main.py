@@ -11,9 +11,9 @@ async def init_tables():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-
-app.include_router(user_router, prefix="/users")
-
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
+app.include_router(user_router, prefix="/users")
+
